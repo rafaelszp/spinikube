@@ -64,7 +64,7 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.6.0/miniku
 
 ## Install and start SpiniKube
 ```
-git clone https://github.com/moondev/SpiniKube.git && cd SpiniKube
+git clone https://github.com/kenzanlabs/spinikube.git && cd SpiniKube
 python setup.py
 ```
 
@@ -75,4 +75,4 @@ The terminal will show the live status of each component as it is created and la
 Once complete a brower will launch with the SpiniKube start page with handy links to each application as well as a tutorial for an example Spinnaker pipeline. This documentatin can also be found [here](start/).
 
 ## Stopping and restarting
-`start.py` is only for initial setup. You can stop and start minikube from any directory with `minikube stop` and `minikube start`
+`setup.py` is only for initial setup. You can stop and start minikube from any directory with `minikube stop` and `minikube start`
