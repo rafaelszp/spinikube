@@ -1,0 +1,4 @@
+minikube/*
+panel/*
+start/services.json
+applications/start/services.json

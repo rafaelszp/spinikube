@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <title>SpiniKube Start Page</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+
+
+
+
+
+  <style type="text/css">
+  body {
+    background-color: #FFFFFF;
+  }
+  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+  .main.container {
+    margin-top: 7em;
+  }
+  .wireframe {
+    margin-top: 2em;
+  }
+  #top{
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  
+  }
+
+  </style>
+
+</head>
+<body class="ui" style="overflow:hidden;">
+
+
+
+
+<!--
+  <div id="top" class="ui fixed inverted menu">
+    <div id="tabs" class="ui container">
+      <a id="logo" href="#" class="nav header item">
+        SpiniKube
+      </a>
+
+
+
+    </div>
+  </div>
+-->
+
+
+<!--
+<div id="top" class="ui grey fixed menu">
+  <a id="logo" class="nav item active">
+    <b>SpiniKube</b>
+  </a>
+  
+
+</div>
+-->
+<div id="top" class="ui fixed grey inverted menu">
+  <a id="logo" href="#" class="nav header item">
+        SpiniKube
+      </a>
+</div>
+
+
+
+
+   <div id="home" style="padding-left:10px;padding-right:10px;" class="ui text">
+     <br /><br />
+<h2 class="ui center aligned header">
+  
+  Welcome to SpiniKube
+</h2>
+
+<h4 class="ui horizontal divider header">
+  Installed Components
+</h4>
+
+
+<div id="cards" class="ui five column grid">
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  </div>
+
+
+
+    <div id="framebox" style="display:none;position:absolute;top:40px;bottom:0px;left:0px;right:0px;">
+    <iframe id="frame" style="width:100%;height:100%;border:none;"></iframe>
+   </div>
+
+
+
+</body>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+
+$.getJSON( "/services.json", function( data ) {
+
+  $.each( data.services, function( key, val ) {
+    $("#top").append('<a href="' + val.link + '" class="nav item">' + val.title + '</a>');
+    $("#cards").append('<a href="' + val.link + '"><div class="column"><div class="ui fluid raised link card"><div class="content"><div class="header">' + val.title + '</div><div class="meta"><span class="category">' + val.description + '</span></div><div class="description"><p></p></div></div></div></div></a>');
+  });
+
+  $('.nav').click(function(){
+    
+     $('.nav').removeClass('active');
+     $(this).addClass('active');
+     
+if($(this).attr('html') == 'Jenkins'){
+       var win = window.open($(this).attr('href'), '_blank');
+        win.focus();
+    }else{
+
+    if($(this).attr('id') == 'logo'){
+       $('#framebox').hide();
+       $('#home').show();
+    }else{
+       $('#home').hide();
+       $('#framebox').show();
+       $('#frame').attr('src',$(this).attr('href'));
+    }
+
+    }
+
+
+
+    
+    return false;
+
+  });
+ 
+
+});
+
+
+
+});
+
+
+</script>
+
+</html>
