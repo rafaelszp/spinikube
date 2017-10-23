@@ -52,6 +52,8 @@ for component in components:
 
 poll()
 
+os.system("kubectl create secret generic spinnaker-config --from-file=./config/echo.yml --from-file=./config/igor.yml --from-file=./config/gate.yml --from-file=./config/orca.yml --from-file=./config/rosco.yml --from-file=./config/front50.yml --from-file=./config/clouddriver.yml --namespace spinnaker")
+
 components = ('front50', 'clouddriver', 'rosco', 'orca', 'igor', 'gate', 'deck')
 for component in components:
   c("applications/spinnaker/" + component + "/controller.yml")

@@ -34,8 +34,8 @@ spec:
         volumeMounts:
         - mountPath: "/opt/clouddriver/config"
           name: "spinnaker-config"
-        - mountPath: "/root/.kube"
-          name: "minikube-config"
+        # - mountPath: "/root/.kube"
+        #   name: "minikube-config"
       dnsPolicy: "ClusterFirst"
       imagePullSecrets:
       - name: "dockerhub"
@@ -50,6 +50,6 @@ spec:
       - name: "spinnaker-config"
         secret:
           secretName: "spinnaker-config"
-      - name: "minikube-config"
-        secret:
-          secretName: "minikube-config"
+      # - name: "minikube-config"
+      #   secret:
+      #     secretName: "minikube-config"
