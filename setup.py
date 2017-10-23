@@ -62,15 +62,3 @@ for component in components:
 poll()
 
 time.sleep(2)
-
-os.system("rm -f applications/start/services.json")
-
-with open("applications/start/services.json", "w") as text_file:
-  text_file.write(services)
-
-os.system("kubectl create secret generic start-config --from-file=./applications/start/index.html --from-file=./applications/start/services.json --namespace spinnaker")
-
-c("applications/start/deployment.yml")
-c("applications/start/service.json")
-
-poll()
