@@ -35,8 +35,8 @@ o("kubectl create namespace spinnaker")
 c("applications/kubedash/bundle.yaml")
 
 c("applications/tectonic/pull.yml")
-c("applications/tectonic/tectonic-console.yaml")
-c("applications/tectonic/tectonic.json")
+# c("applications/tectonic/tectonic-console.yaml")
+# c("applications/tectonic/tectonic.json")
 
 components = ('jenkins', 'registry', 'registryui', 'debweb')
 for component in components:
